@@ -56,29 +56,28 @@ The models were evaluated using:
 
 ## Libraries Used
 
-Libraries Used
 1. Pandas, Numpy
-•	Purpose: Data manipulation and analysis.
-•	Usage: Loading datasets, cleaning data, and transforming data for analysis.
+• Purpose: Data manipulation and analysis.
+• Usage: Loading datasets, cleaning data, and transforming data for analysis.
 
 ```python
 import pandas as pd
 import numpy as np
-\```
 
-2. Matplotlib ans Seaborn
-•	Purpose: Data visualization.
-•	Usage: Creating bar charts, value counts, and other visualizations to understand class balance.
+Matplotlib and Seaborn
+ • Purpose: Data visualization. 
+ • Usage: Creating bar charts, value counts, and other visualizations to understand class balance.
 
-```python
+python
+
 import matplotlib.pyplot as plt
 import seaborn as sns
+
 
 3. nltk (Natural Language Toolkit) and REGEX
 •	Purpose: Text preprocessing.
 •	Usage: Tokenization, lemmatization, removing stop words, and text cleaning.
 
-```python
 import re
 import nltk
 from nltk.corpus import stopwords
@@ -90,7 +89,6 @@ from nltk.stem import WordNetLemmatizer
 •	Usage: Building and evaluating models, including Logistic Regression, Naive Bayes, and ensemble models. Metrics such as classification_report and confusion_matrix.
 
 
-```python
 from imblearn.pipeline import Pipeline
 from sklearn.pipeline import Pipeline
 from sklearn.preprocessing import LabelEncoder
@@ -108,15 +106,15 @@ import warnings
 warnings.filterwarnings("ignore")
 
 
+
 5. wordcloud and Counter
 •	Purpose: Text visualization.
 •	Usage: Creating word clouds to visualize the most common words in each sentiment class.
 
-```python
 from collections import Counter
 from wordcloud import WordCloud
-\```
 
+'''
 
 
 ## Next Steps and Recommendations
