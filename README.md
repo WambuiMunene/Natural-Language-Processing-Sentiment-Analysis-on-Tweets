@@ -29,21 +29,21 @@ Sentiment Analysis provides businesses with insights into public perception of t
 1. **Load the Data**
 • Use Pandas to load the dataset and inspect the data.
 
-2. **Perform Data Cleaning with nltk**
-•	Use Regular Expressions (REGEX) to remove irrelevant information such as URLs, mentions, and hashtags.
+2. **Perform Data Cleaning with `nltk` library**
+•	Use Regular Expressions (REGEX) to remove irrelevant information such as URLs, mentions, and hashtags from the library `re`
 •	Convert all text to lowercase to ensure uniformity.
-•	Apply lemmatization to reduce words to their base forms.
-•	Remove stop words to focus on meaningful words.
+•	Apply lemmatization to reduce words to their base forms using `WordNetLemmatizer` from `nltk`
+•	Remove stop words to focus on meaningful words using `stopwords` from `nltk.corpus`
 •	Tokenize the cleaned text.
 
 3. **Perform Exploratory Data Analysis**
 •	Analyze positive and negative sentiments by company.
 •	Visualize the distribution of sentiment labels using bar charts and value counts.
-•	Visualize the top 10 most common words.
-•	Create word clouds for positive, negative, and neutral tweets.
+•	Visualize the top 10 most common words using `matplotlib` and `seaborn`
+•	Create word clouds for positive, negative, and neutral tweets using `wordcloud`
 
 4. **Vectorize the Text Data with TFidfVectorizer**
-•	 Use TF-IDF vectorizer  to convert the text data into numeric form.
+•	 Use `TFidfVectorizer` from `sklearn.feature_extraction.text`  to convert the text data into numeric form.
 
 5. **Iteratively Build and Evaluate Baseline and Ensemble Models**
 •	Use Pipelines to build and tune Logistic Regression and Naive Bayes Models.
@@ -54,72 +54,9 @@ The models were evaluated using:
 - `classification_report` from `sklearn.metrics`
 - `confusion_matrix`
 
-## Libraries Used
-
-1. Pandas, Numpy
-• Purpose: Data manipulation and analysis.
-• Usage: Loading datasets, cleaning data, and transforming data for analysis.
-
-```python
-import pandas as pd
-import numpy as np
-
-Matplotlib and Seaborn
- • Purpose: Data visualization. 
- • Usage: Creating bar charts, value counts, and other visualizations to understand class balance.
-
-python
-
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 
-3. nltk (Natural Language Toolkit) and REGEX
-•	Purpose: Text preprocessing.
-•	Usage: Tokenization, lemmatization, removing stop words, and text cleaning.
-
-import re
-import nltk
-from nltk.corpus import stopwords
-from nltk.stem import WordNetLemmatizer
-
-
-4. scikit-learn (sklearn),imblearn and xgboost
-•	Purpose: Machine learning and model evaluation.
-•	Usage: Building and evaluating models, including Logistic Regression, Naive Bayes, and ensemble models. Metrics such as classification_report and confusion_matrix.
-
-
-from imblearn.pipeline import Pipeline
-from sklearn.pipeline import Pipeline
-from sklearn.preprocessing import LabelEncoder
-from sklearn.linear_model import LogisticRegression
-from sklearn.naive_bayes import MultinomialNB
-from sklearn.tree import DecisionTreeClassifier
-from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
-import xgboost as xgb
-from imblearn.over_sampling import SMOTE
-from sklearn.model_selection import GridSearchCV
-from sklearn.decomposition import TruncatedSVD, PCA
-from sklearn.metrics import classification_report, confusion_matrix
-
-import warnings
-warnings.filterwarnings("ignore")
-
-
-
-5. wordcloud and Counter
-•	Purpose: Text visualization.
-•	Usage: Creating word clouds to visualize the most common words in each sentiment class.
-
-from collections import Counter
-from wordcloud import WordCloud
-
-'''
-
-
-## Next Steps and Recommendations
-
-### Recommendations
+## Recommendations
 
 ### 1. Sentiment Analysis and Competition Landscape
 
@@ -232,4 +169,65 @@ These steps will ensure that the sentiment analysis model continues to deliver v
 
 
 
+## Appendix
+
+### Libraries Used
+
+1. Pandas, Numpy
+• Purpose: Data manipulation and analysis.
+• Usage: Loading datasets, cleaning data, and transforming data for analysis.
+
+```python
+import pandas as pd
+import numpy as np
+
+Matplotlib and Seaborn
+ • Purpose: Data visualization. 
+ • Usage: Creating bar charts, value counts, and other visualizations to understand class balance.
+
+python
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+
+3. nltk (Natural Language Toolkit) and REGEX
+•	Purpose: Text preprocessing.
+•	Usage: Tokenization, lemmatization, removing stop words, and text cleaning.
+
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+
+4. scikit-learn (sklearn),imblearn and xgboost
+•	Purpose: Machine learning and model evaluation.
+•	Usage: Building and evaluating models, including Logistic Regression, Naive Bayes, and ensemble models. Metrics such as classification_report and confusion_matrix.
+
+
+from imblearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+import xgboost as xgb
+from imblearn.over_sampling import SMOTE
+from sklearn.model_selection import GridSearchCV
+from sklearn.decomposition import TruncatedSVD, PCA
+from sklearn.metrics import classification_report, confusion_matrix
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+
+5. wordcloud and Counter
+•	Purpose: Text visualization.
+•	Usage: Creating word clouds to visualize the most common words in each sentiment class.
+
+from collections import Counter
+from wordcloud import WordCloud
 
