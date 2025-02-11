@@ -8,8 +8,9 @@ Social media is a dynamic platform where customers express their thoughts about 
 
 The objective of this project is to build a Natural Language Processing (NLP) model that rates the sentiment of tweets about Apple and Google products as positive, negative or neutral. The dataset used to build the model is sourced from CrowdFlower via data.world https://data.world/crowdflower/brands-and-product-emotions. This dataset consists of slightly over 9,000 human-rated tweets.
 
-Features: prior to the preprocessing steps every row in the dataset only contains two feature columns; a string containing the full text of an individual tweet, and another string on the product being refereed to in the tweet. During preprocessing a string of tweet text will be converted inoto individual words creating more features.
-Target: the target consists of labels (emotions) for different tweets - positive, negative, neutral and 'can't tell'. By looking at the value counts for each sentiment, a decision will be made on which of the classes to use to achieve our objectives
+**Features:** prior to the preprocessing steps every row in the dataset only contains two feature columns; a string containing the full text of an individual tweet, and another string on the product being refereed to in the tweet. During preprocessing a string of tweet text will be converted inoto individual words creating more features.
+
+**Target:** the target consists of labels (emotions) for different tweets - positive, negative, neutral and 'can't tell'. By looking at the value counts for each sentiment, a decision will be made on which of the classes to use to achieve our objectives
 
 ## Problem Statement
 
@@ -25,59 +26,97 @@ Sentiment Analysis provides businesses with insights into public perception of t
 
  ## Requirements to Meet Objectives
 
-1. Load the Data
-•	- Use Pandas to load the dataset and inspect the data.
+1. **Load the Data**
+• Use Pandas to load the dataset and inspect the data.
 
-2. Perform Data Cleaning with nltk
-•	- Use Regular Expressions (REGEX) to remove irrelevant information such as URLs, mentions, and hashtags.
-•	- Convert all text to lowercase to ensure uniformity.
-•	- Apply lemmatization to reduce words to their base forms.
-•	- Remove stop words to focus on meaningful words.
-•	- Tokenize the cleaned text.
-3. Perform Exploratory Data Analysis
-•	- Analyze positive and negative sentiments by company.
-•	- Visualize the distribution of sentiment labels using bar charts and value counts.
-•	- Visualize the top 10 most common words.
-•	- Create word clouds for positive, negative, and neutral tweets.
+2. **Perform Data Cleaning with nltk**
+•	Use Regular Expressions (REGEX) to remove irrelevant information such as URLs, mentions, and hashtags.
+•	Convert all text to lowercase to ensure uniformity.
+•	Apply lemmatization to reduce words to their base forms.
+•	Remove stop words to focus on meaningful words.
+•	Tokenize the cleaned text.
 
-4. Vectorize the Text Data with TFidfVectorizer
-•	- Use TF-IDF vectorizer  to convert the text data into numeric form.
+3. **Perform Exploratory Data Analysis**
+•	Analyze positive and negative sentiments by company.
+•	Visualize the distribution of sentiment labels using bar charts and value counts.
+•	Visualize the top 10 most common words.
+•	Create word clouds for positive, negative, and neutral tweets.
 
-5. Iteratively Build and Evaluate Baseline and Ensemble Models
-•	- Use Pipelines to build and tune Logistic Regression and Naive Bayes Models.
-•	- Build and train one or more ensemble models and compare results with tuned baseline models.
+4. **Vectorize the Text Data with TFidfVectorizer**
+•	 Use TF-IDF vectorizer  to convert the text data into numeric form.
 
-6. Evaluation
-•  Evaluate model performance using:
-o	- classification_report from Scikit-learn
-o	- confusion_matrix
+5. **Iteratively Build and Evaluate Baseline and Ensemble Models**
+•	Use Pipelines to build and tune Logistic Regression and Naive Bayes Models.
+•	Build and train one or more ensemble models and compare results with tuned baseline models.
+
+6. **Evaluation**
+The models were evaluated using:
+- `classification_report` from `sklearn.metrics`
+- `confusion_matrix`
 
 ## Libraries Used
 
 Libraries Used
-1. Pandas
+1. Pandas, Numpy
 •	Purpose: Data manipulation and analysis.
 •	Usage: Loading datasets, cleaning data, and transforming data for analysis.
 
-2. nltk (Natural Language Toolkit)
-•	Purpose: Text preprocessing.
-•	Usage: Tokenization, lemmatization, removing stop words, and text cleaning.
+```python
+import pandas as pd
+import numpy as np
 
-3. scikit-learn (sklearn)
-•	Purpose: Machine learning and model evaluation.
-•	Usage: Building and evaluating models, including Logistic Regression, Naive Bayes, and ensemble models. Metrics such as classification_report and confusion_matrix.
-
-4. matplotlib ans seaborn
+2. Matplotlib ans Seaborn
 •	Purpose: Data visualization.
 •	Usage: Creating bar charts, value counts, and other visualizations to understand class balance.
 
-5. wordcloud
+```python
+import matplotlib.pyplot as plt
+import seaborn as sns
+
+3. nltk (Natural Language Toolkit) and REGEX
+•	Purpose: Text preprocessing.
+•	Usage: Tokenization, lemmatization, removing stop words, and text cleaning.
+
+```python
+import re
+import nltk
+from nltk.corpus import stopwords
+from nltk.stem import WordNetLemmatizer
+
+
+4. scikit-learn (sklearn),imblearn and xgboost
+•	Purpose: Machine learning and model evaluation.
+•	Usage: Building and evaluating models, including Logistic Regression, Naive Bayes, and ensemble models. Metrics such as classification_report and confusion_matrix.
+
+
+```python
+from imblearn.pipeline import Pipeline
+from sklearn.pipeline import Pipeline
+from sklearn.preprocessing import LabelEncoder
+from sklearn.linear_model import LogisticRegression
+from sklearn.naive_bayes import MultinomialNB
+from sklearn.tree import DecisionTreeClassifier
+from sklearn.ensemble import RandomForestClassifier, AdaBoostClassifier
+import xgboost as xgb
+from imblearn.over_sampling import SMOTE
+from sklearn.model_selection import GridSearchCV
+from sklearn.decomposition import TruncatedSVD, PCA
+from sklearn.metrics import classification_report, confusion_matrix
+
+import warnings
+warnings.filterwarnings("ignore")
+
+
+5. wordcloud and Counter
 •	Purpose: Text visualization.
 •	Usage: Creating word clouds to visualize the most common words in each sentiment class.
 
-6. regex
-•	Purpose: Text cleaning.
-•	Usage: Handling regular expressions for removing irrelevant information such as URLs, mentions, and hashtags.
+```python
+from collections import Counter
+from wordcloud import WordCloud
+
+
+
 
 ## Next Steps and Recommendations
 
