@@ -64,6 +64,7 @@ Libraries Used
 ```python
 import pandas as pd
 import numpy as np
+\```
 
 2. Matplotlib ans Seaborn
 •	Purpose: Data visualization.
@@ -114,7 +115,7 @@ warnings.filterwarnings("ignore")
 ```python
 from collections import Counter
 from wordcloud import WordCloud
-
+\```
 
 
 
