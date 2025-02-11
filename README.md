@@ -61,7 +61,7 @@ The models were evaluated using:
 
 ### 1. Sentiment Analysis and Competition Landscape
 
-![Sentiments By Product](https://github.com/WambuiMunene/Phase-4-Sentiment-Analysis-NLP-Project/raw/master/sentiments_by_product.png)
+![Sentiments By Product](sentiments_by_product.png)
 
 
 - **Popularity and Sentiment Balance:** Apple products are more popular but also have higher negative sentiments. Apple should monitor and address negative sentiments to maintain its market position.
