@@ -83,18 +83,49 @@ Libraries Used
 
 ### Recommendations
 
-1. Sentiment Analysis and Competition Landscape
+### 1. Sentiment Analysis and Competition Landscape
 
-![Sentiments By Product](sentiments_by_product.png)
+![Sentiments By Product][def]
 
-•	Popularity and Sentiment Balance: Apple products are more popular but also have higher negative sentiments. Apple should monitor and address negative sentiments to maintain its market position.
-•	Strategy for Negative Sentiments: Apple should proactively address customer complaints by enhancing customer service, improving product quality, and engaging with users on social media.
-3.2 Model Performance and Selection
-Evaluation of Sentiment Classification Models to Identify Positive, Neutral, and Negative Classes
-•	Baseline Logistic Regression Model showed an overall accuracy of 65%, while the tuned Logistic Regression and Random Forest Model had an accuracy of 66% and 67% respectively. Comparing the metrics for the negative class:
-o	Precision: Random Forest is better at avoiding false positives for negative tweets.
-o	Recall: Baseline Logistic Regression captures a higher percentage of actual negative tweets.
-o	F1-Score: Baseline Logistic Regression offers a balanced approach with better recall.
+•	- **Popularity and Sentiment Balance:** Apple products are more popular but also have higher negative sentiments. Apple should monitor and address negative sentiments to maintain its market position.
+•	- **Strategy for Negative Sentiments:** Apple should proactively address customer complaints by enhancing customer service, improving product quality, and engaging with users on social media.
+
+### 2. Model Performance and Selection
+
+ ### Evaluation of Sentiment Classification Models to Identify Positive, Neutral, and Negative Classes
+
+ Classification Report (Baseline Logistic Regression):
+              precision  recall  f1-score  support
+Negative           0.37    0.48      0.41   189.00
+Neutral            0.74    0.72      0.73  1612.00
+Positive           0.56    0.56      0.56   880.00
+accuracy           0.65    0.65      0.65     0.65
+macro avg          0.56    0.58      0.57  2681.00
+weighted avg       0.66    0.65      0.65  2681.00
+
+Classification Report (Tuned Logistic Regression):
+              precision  recall  f1-score  support
+Negative           0.42    0.39      0.40   189.00
+Neutral            0.74    0.74      0.74  1612.00
+Positive           0.57    0.58      0.57   880.00
+accuracy           0.66    0.66      0.66     0.66
+macro avg          0.57    0.57      0.57  2681.00
+weighted avg       0.66    0.66      0.66  2681.00
+
+Classification Report (Random Forest):
+              precision  recall  f1-score  support
+Negative           0.66    0.21      0.32   189.00
+Neutral            0.70    0.84      0.76  1612.00
+Positive           0.60    0.48      0.53   880.00
+accuracy           0.67    0.67      0.67     0.67
+macro avg          0.65    0.51      0.54  2681.00
+weighted avg       0.67    0.67      0.66  2681.00
+
+
+  - Baseline Logistic Regression Model showed an overall accuracy of 65%, while the tuned Logistic Regression and Random Forest Model had an accuracy of 66% and 67% respectively. Comparing the metrics for the negative class:
+  - Precision: Random Forest is better at avoiding false positives for negative tweets.
+  - Recall: Baseline Logistic Regression captures a higher percentage of actual negative tweets.
+  - F1-Score: Baseline Logistic Regression offers a balanced approach with better recall.
 The Baseline Logistic Model is the better model for identifying the three classes, focusing on improving the recall of the Negative Class.
 Evaluation of Sentiment Classification Models to Identify the Negative Class
 •	Sub-optimal performance can be attributed to class imbalance. Although SMOTE was used to oversample the minority class, the synthetic data did not significantly enhance model performance.
@@ -107,3 +138,6 @@ Given the focus on identifying negative sentiments accurately, the Baseline Logi
 
 
 
+
+
+[def]: sentiments_by_product.png
