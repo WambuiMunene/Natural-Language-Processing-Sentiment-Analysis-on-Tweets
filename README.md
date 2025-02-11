@@ -85,7 +85,7 @@ Libraries Used
 
 ### 1. Sentiment Analysis and Competition Landscape
 
-![Sentiments By Product][def]
+!(Sentiments By Product)[sentiments_by_product.png]
 
 •	- **Popularity and Sentiment Balance:** Apple products are more popular but also have higher negative sentiments. Apple should monitor and address negative sentiments to maintain its market position.
 •	- **Strategy for Negative Sentiments:** Apple should proactively address customer complaints by enhancing customer service, improving product quality, and engaging with users on social media.
@@ -94,50 +94,103 @@ Libraries Used
 
  ### Evaluation of Sentiment Classification Models to Identify Positive, Neutral, and Negative Classes
 
- Classification Report (Baseline Logistic Regression):
-              precision  recall  f1-score  support
-Negative           0.37    0.48      0.41   189.00
-Neutral            0.74    0.72      0.73  1612.00
-Positive           0.56    0.56      0.56   880.00
-accuracy           0.65    0.65      0.65     0.65
-macro avg          0.56    0.58      0.57  2681.00
-weighted avg       0.66    0.65      0.65  2681.00
+Classification Report (Baseline Logistic Regression):
+|   precision |   recall |   f1-score |   support |
+|------------:|---------:|-----------:|----------:|
+|        0.37 |     0.48 |       0.41 |    189    |
+|        0.74 |     0.72 |       0.73 |   1612    |
+|        0.56 |     0.56 |       0.56 |    880    |
+|        0.65 |     0.65 |       0.65 |    0.65   |
+|        0.56 |     0.58 |       0.57 |   2681    |
+|        0.66 |     0.65 |       0.65 |   2681    |
 
 Classification Report (Tuned Logistic Regression):
-              precision  recall  f1-score  support
-Negative           0.42    0.39      0.40   189.00
-Neutral            0.74    0.74      0.74  1612.00
-Positive           0.57    0.58      0.57   880.00
-accuracy           0.66    0.66      0.66     0.66
-macro avg          0.57    0.57      0.57  2681.00
-weighted avg       0.66    0.66      0.66  2681.00
+|   precision |   recall |   f1-score |   support |
+|------------:|---------:|-----------:|----------:|
+|        0.42 |     0.39 |       0.4  |    189    |
+|        0.74 |     0.74 |       0.74 |   1612    |
+|        0.57 |     0.58 |       0.57 |    880    |
+|        0.66 |     0.66 |       0.66 |    0.66   |
+|        0.57 |     0.57 |       0.57 |   2681    |
+|        0.66 |     0.66 |       0.66 |   2681    |
 
 Classification Report (Random Forest):
-              precision  recall  f1-score  support
-Negative           0.66    0.21      0.32   189.00
-Neutral            0.70    0.84      0.76  1612.00
-Positive           0.60    0.48      0.53   880.00
-accuracy           0.67    0.67      0.67     0.67
-macro avg          0.65    0.51      0.54  2681.00
-weighted avg       0.67    0.67      0.66  2681.00
+|   precision |   recall |   f1-score |   support |
+|------------:|---------:|-----------:|----------:|
+|        0.66 |     0.21 |       0.32 |    189    |
+|        0.7  |     0.84 |       0.76 |   1612    |
+|        0.6  |     0.48 |       0.53 |    880    |
+|        0.67 |     0.67 |       0.67 |   0.67    |
+|        0.65 |     0.51 |       0.54 |   2681    |
+|        0.67 |     0.67 |       0.66 |   2681    |
+ 
 
 
   - Baseline Logistic Regression Model showed an overall accuracy of 65%, while the tuned Logistic Regression and Random Forest Model had an accuracy of 66% and 67% respectively. Comparing the metrics for the negative class:
   - Precision: Random Forest is better at avoiding false positives for negative tweets.
   - Recall: Baseline Logistic Regression captures a higher percentage of actual negative tweets.
   - F1-Score: Baseline Logistic Regression offers a balanced approach with better recall.
+
 The Baseline Logistic Model is the better model for identifying the three classes, focusing on improving the recall of the Negative Class.
-Evaluation of Sentiment Classification Models to Identify the Negative Class
-•	Sub-optimal performance can be attributed to class imbalance. Although SMOTE was used to oversample the minority class, the synthetic data did not significantly enhance model performance.
-•	Steps taken:
+
+Sub-optimal performance can be attributed to class imbalance. Although SMOTE was used to oversample the minority class, the synthetic data did not significantly enhance model performance.
+
+In our quest to develop a model with a higher recall for the negative class, we undertook the following steps:
+
 o	Class Consolidation: Neutral and Positive classes combined into a new class labeled 'Other'.
 o	Resampling: Built a model with a resampled subset of the new class.
 o	Model Training: Trained both baseline and tuned Logistic Regression models, along with three Ensemble models.
-Given the focus on identifying negative sentiments accurately, the Baseline Logistic Regression model with balanced classes is recommended. It achieves the highest recall for the negative class, ensuring a higher number of negative sentiments are accurately identified.
+
+### Evaluation of Sentiment Classification Models to Identify the Negative Class
+
+Classification Report Baseline Logistic Regression Balanced Classes:
+|   precision |   recall |   f1-score |   support |
+|------------:|---------:|-----------:|----------:|
+|        0.69 |     0.75 |       0.72 |    183    |
+|        0.78 |     0.73 |       0.76 |    228    |
+|        0.74 |     0.74 |       0.74 |    0.74   |
+|        0.74 |     0.74 |       0.74 |    411    |
+|        0.74 |     0.74 |       0.74 |    411    |
+
+Classification Report Tuned Logistic Regression Balanced Classes:
+|   precision |   recall |   f1-score |   support |
+|------------:|---------:|-----------:|----------:|
+|        0.71 |     0.73 |       0.72 |    183    |
+|        0.78 |     0.76 |       0.77 |    228    |
+|        0.74 |     0.74 |       0.74 |    0.74   |
+|        0.74 |     0.74 |       0.74 |    411    |
+|        0.75 |     0.74 |       0.74 |    411    |
+
+Classification Report Random Forest Balanced Classes:
+|   precision |   recall |   f1-score |   support |
+|------------:|---------:|-----------:|----------:|
+|        0.76 |     0.58 |       0.66 |    183    |
+|        0.72 |     0.86 |       0.78 |    228    |
+|        0.73 |     0.73 |       0.73 |    0.73   |
+|        0.74 |     0.72 |       0.72 |    411    |
+|        0.74 |     0.73 |       0.73 |    411    |
+
+
+After evaluating the performance of the different models, it is evident that the Baseline Logistic Regression model provides the highest recall 
+for the negative class at 75%, which is crucial for identifying negative sentiments accurately. The Tuned Logistic Regression model, while 
+having slightly higher precision, has a recall of 73% for the negative class. The Random Forest model, although having higher precision for 
+the negative class, has a lower recall compared to the Baseline Logistic Regression model.
+
+Lower recall compared to Baseline Logistic Regression model
+•Given the focus on identifying negative sentiments accurately, the Baseline Logistic Regression model with balanced classes is recommended. 
+It achieves the highest recall for the negative class, ensuring a higher number of negative sentiments are accurately identified.
+	
+
+## 4.0 Next Steps
+
+**Deploy the Selected Model:** Implement the Baseline Logistic Regression model with balanced classes into a production environment. Ensure you have a pipeline for real-time or batch processing of new tweets to classify the sentiment efficiently. This involves setting up the infrastructure, such as cloud services or servers, and integrating the model into existing systems.
+
+**Continuous Model Monitoring and Improvement:** Establish a system to monitor the performance of the deployed model regularly. Collect feedback, track key metrics like precision, recall, and F1-score, and analyze any drifts in data or model accuracy. Schedule periodic retraining of the model with new, better labeled data to improve its performance and relevance.
+
+**Develop a Sentiment Response Strategy:** Based on the insights derived from the sentiment analysis, create a comprehensive strategy for responding to negative sentiments identified in the tweets. This could include setting up automated alert systems for negative sentiment spikes, defining customer service protocols for addressing issues, and developing content strategies to engage with customers and improve brand perception.
+
+These steps will ensure that the sentiment analysis model continues to deliver valuable insights and helps Apple proactively address customer concerns.
 
 
 
 
-
-
-[def]: sentiments_by_product.png
