@@ -59,9 +59,8 @@ The models were evaluated using:
 
 
 
-## Recommendations
-
-### 1. Sentiment Analysis and Competition Landscape
+## Objective # 1. 
+### Sentiment Analysis and Competition Landscape
 
 ![Sentiments By Product](sentiments_by_product.png)
 
@@ -69,8 +68,8 @@ The models were evaluated using:
 - **Popularity and Sentiment Balance:** Apple products are more popular but also have higher negative sentiments. Apple should monitor and address negative sentiments to maintain its market position.
 - **Strategy for Negative Sentiments:** Apple should proactively address customer complaints by enhancing customer service, improving product quality, and engaging with users on social media.
 
-### 2. Model Performance and Selection
 
+## Objective # 2
  ### Evaluation of the Top 3 Best Performing Classification Models to Identify Positive, Neutral, and Negative Classes
 
 Classification Report (Baseline Logistic Regression):
@@ -120,6 +119,7 @@ In our quest to develop a model with a higher recall for the negative class, we 
 - **Resampling:** Built a model with a resampled subset of the new class.
 - **Model Training:** Trained both baseline and tuned `LogisticRegression` models, along with three Ensemble models-`RandomForestClassifier` ,`AdaBoostClassifier` and `xgboost`
 
+## Objective # 2
 ### Evaluation of the Top 3 Best Performing Classification Models to Identify the Negative Class
 
 Classification Report Baseline Logistic Regression Balanced Classes:
@@ -159,7 +159,7 @@ Given the focus of the business is to  identify negative sentiments accurately, 
 It achieves the highest recall for the negative class, ensuring a higher number of negative sentiments are accurately identified, and also performs quite all on the other classes ,providing the most balanced scores.
 	
 
-## 4.0 Next Steps
+## Next Steps
 
 **Deploy the Selected Model:** 
 - Implement the Baseline `LogisticRegression` model with balanced classes into a production environment. 
