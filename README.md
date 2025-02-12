@@ -71,7 +71,7 @@ The models were evaluated using:
 
 ## Objective # 2
  ### Evaluation of the Top 3 Best Performing Classification Models to Identify Positive, Neutral, and Negative Classes
-
+```
 Classification Report (Baseline Logistic Regression):
               precision  recall  f1-score  support
 Negative           0.37    0.48      0.41   189.00
@@ -100,7 +100,7 @@ Positive           0.60    0.48      0.53   880.00
 accuracy           0.67    0.67      0.67     0.67
 macro avg          0.65    0.51      0.54  2681.00
 weighted avg       0.67    0.67      0.66  2681.00
-
+```
 
 **Interpretation**
   - Baseline Logistic Regression Model showed an overall accuracy of 65%, while the tuned Logistic Regression and Random Forest Model had an accuracy of 66% and 67% respectively. Comparing the metrics for the negative class:
@@ -120,7 +120,7 @@ In our quest to develop a model with a higher recall for the negative class, we 
 
 ## Objective # 3
 ### Evaluation of the Top 3 Best Performing Classification Models to Identify the Negative Class
-
+```
 Classification Report Baseline Logistic Regression:
               precision  recall  f1-score  support
 Negative           0.69    0.75      0.72   183.00
@@ -147,7 +147,7 @@ accuracy           0.73    0.73      0.73     0.73
 macro avg          0.74    0.72      0.72   411.00
 weighted avg       0.74    0.73      0.73   411.00
 
-
+```
 
 After evaluating the performance of the different models, it is evident that the Baseline `LogisticRegression` model provides the highest recall score for the negative class at 75%, which is crucial for identifying negative sentiments accurately. The Tuned `LogisticRegression` model, while having slightly higher precision, has a recall of 73% for the negative class. The `RandomForestClassifier` model, although having higher precision for the negative class, has a significantly lower recall compared to both `LogisticRegression` models.
 
