@@ -119,7 +119,7 @@ In our quest to develop a model with a higher recall for the negative class, we 
 - **Resampling:** Built a model with a resampled subset of the new class.
 - **Model Training:** Trained both baseline and tuned `LogisticRegression` models, along with three Ensemble models-`RandomForestClassifier` ,`AdaBoostClassifier` and `xgboost`
 
-## Objective # 2
+## Objective # 3
 ### Evaluation of the Top 3 Best Performing Classification Models to Identify the Negative Class
 
 Classification Report Baseline Logistic Regression Balanced Classes:
