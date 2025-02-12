@@ -1,4 +1,4 @@
-# Phase-4-Sentiment-Analysis-NLP-Project
+# Developing an NLP Model to Analyze and Classify the Sentiment of Tweets About Apple and Google Products as Positive, Negative, or Neutral.
 
 ## Project Summary
 
@@ -6,15 +6,17 @@ Social media is a dynamic platform where customers express their thoughts about 
 
 ## Data Understanding
 
-The objective of this project is to build a Natural Language Processing (NLP) model that rates the sentiment of tweets about Apple and Google products as positive, negative or neutral. The dataset used to build the model is sourced from CrowdFlower via data.world https://data.world/crowdflower/brands-and-product-emotions. This dataset consists of slightly over 9,000 human-rated tweets.
+The objective of this project is to build a Natural Language Processing (NLP) model that rates the sentiment of tweets about Apple and Google products as positive, negative or neutral, and in particular be able to pick out negative tweets with a high level of recall.The dataset used to build the model is sourced from CrowdFlower via data.world https://data.world/crowdflower/brands-and-product-emotions. This dataset consists of slightly over 9,000 human-rated tweets.
 
-**Features:** prior to the preprocessing steps every row in the dataset only contains two feature columns; a string containing the full text of an individual tweet, and another string on the product being refereed to in the tweet. During preprocessing a string of tweet text will be converted inoto individual words creating more features.
+**Features:** prior to the preprocessing steps every row in the dataset only contains two feature columns; a string containing the full text of an individual tweet, and another string on the product being referred to in the tweet. During preprocessing the string of tweet text will be converted inoto individual words creating more features.
 
-**Target:** the target consists of labels (emotions) for different tweets - positive, negative, neutral and 'can't tell'. By looking at the value counts for each sentiment, a decision will be made on which of the classes to use to achieve our objectives
+**Target:** the target consists of labels (emotions) for each tweets - positive, negative, neutral and 'can't tell'. By looking at the value counts for each sentiment, a decision will be made on which of the classes to use to achieve our objectives.
 
 ## Problem Statement
 
-Sentiment Analysis provides businesses with insights into public perception of their products and services. By analyzing sentiments from tweets, companies can identify areas of concern in real-time, allowing them to address customer needs proactively.
+Sentiment Analysis is a powerful tool that provides businesses with deep insights into public perception of their products and services. By leveraging sentiment analysis, companies can effectively gauge customer sentiment and understand the emotional tone behind customer interactions. This enables businesses to identify areas of concern in real-time, allowing them to proactively address customer needs and improve their offerings.
+
+By analyzing these sentiments from the tweets about their products and that of their competitor, Apple can tap into a wealth of authentic feedback that traditional surveys or feedback forms might miss. This immediate access to customer sentiment will allow them to swiftly identify trends, preferences, and potential issues, allowing for proactive engagement and timely adjustments to strategies.
 
 ## Business Objectives
 
@@ -29,7 +31,7 @@ Sentiment Analysis provides businesses with insights into public perception of t
 1. **Load the Data**
 - Used `pandas` to load the dataset and inspect the data.
 
-2. **Perform Data Cleaning with `nltk` library**
+2. **Perform Data Cleaning with `nltk` and `re` libraries**
 - Used Regular Expressions (REGEX) to remove irrelevant information such as URLs, mentions, and hashtags from the library `re`
 - Convert all text to lowercase to ensure uniformity.
 - Apply lemmatization to reduce words to their base forms using `WordNetLemmatizer` from `nltk`
@@ -47,7 +49,7 @@ Sentiment Analysis provides businesses with insights into public perception of t
 
 5. **Iteratively Build and Evaluate Baseline and Ensemble Models**
 - Used `Pipelines` from `sklearn.pipeline` and `imblearn.pipeline` to build and tune `LogisticRegression` and `MultinomialNB`
-- Build and train one or more ensemble models and compare results with tuned baseline models. `RandomForestClassifier` ,`AdaBoostClassifier` and `xgboost`
+- Build and train one or more ensemble models and compare results with the9= baseline models. `RandomForestClassifier` ,`AdaBoostClassifier` and `xgboost`
 - Used `SMOTE` to `oversample` the minority class and `GridSearchCV` to identify the best parameters
 
 
